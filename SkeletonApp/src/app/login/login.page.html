@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-title style="text-align: center;">SkeletonAPP</ion-title>
+    <ion-progress-bar [value]="progress"></ion-progress-bar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+      
+    </ion-toolbar>
+  </ion-header>
+    <ion-item>
+      <ion-input labelPlacement="floating" value="hi@ionic.io">
+        <div slot="label">Email <ion-text color="danger">(Required)</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-input type="password" label="Password" value="NeverGonnaGiveYouUp">
+      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    </ion-input>
+</ion-content>
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;">PGY4121 - 2024</ion-title>
+  </ion-toolbar>
+</ion-footer>
