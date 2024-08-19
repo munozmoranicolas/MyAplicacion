@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
   public progress = 0;
+  user = {usuario: '', password: ''};
 
-  constructor() { 
+  constructor(private router: Router) { 
     setInterval(() => {
       this.progress += 0.01;
 
@@ -23,6 +25,15 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ingresar(){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.user 
+      }
+    };
+    this.router.navigate(['/home'],navigationExtras);
   }
 
 }
