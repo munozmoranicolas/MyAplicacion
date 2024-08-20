@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      SkeletonAPP
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,9 +12,56 @@
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-button [routerLink]="['/login']">Login</ion-button>
-  <div id="container">
-    <strong>Ready to create an app?</strong>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido</ion-card-title>
+      <ion-card-subtitle>Usuario {{user.usuario}}</ion-card-subtitle>
+    </ion-card-header>  
+    <ion-card-content>
+      <ion-list>
+        <ion-text><h1>Informacion Adicional</h1></ion-text>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-input label="Nombre" [(ngModel)]="nombre" placeholder="Ingrese Nombre"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-input label="Apellido" [(ngModel)]="apellido" placeholder="Ingrese Apellido"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-select [(ngModel)]="nivel_educacional" placeholder="Selecciona">
+            <div slot="label">Nivel Educativo</div>
+            <ion-select-option value="basico">Basico</ion-select-option>
+            <ion-select-option value="medio">Medio</ion-select-option>
+            <ion-select-option value="superior">Superior</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item>
+          <ion-input label="Fecha Nacimiento" [(ngModel)]="fecha_nacimiento" type="date" ></ion-input>
+        </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="limpiar()">Limpiar</ion-button>
+          <ion-button id="present-alert">Mostrar</ion-button>
+          <ion-alert trigger="present-alert" header="Usuario" message="Su nombre es {{nombre}} {{apellido}} {{nivel_educacional}} {{fecha_nacimiento}}"
+            [buttons]="alertButtons"
+          ></ion-alert>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+  <!--<div id="container">
+    <strong>Ready to create an app? {{user.usuario}}</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  </div>-->
 </ion-content>
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center;">PGY4121 - 2024</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -25,6 +25,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    console.log('ngOnInit LoginPage');
   }
 
   ingresar(){
@@ -34,6 +35,19 @@ export class LoginPage implements OnInit {
       }
     };
     this.router.navigate(['/home'],navigationExtras);
+  }
+
+  validarLogin(){
+    if(this.user.usuario.length >= 3 && this.user.usuario.length <= 8 && this.user.password.length == 4 && this.user.password.match(/^\d{4}$/)){
+      this.ingresar();  
+    }
+    else{
+      alert("Usuario y/o contraseña incorrectos");
+    }
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy LoginPage');
   }
 
 }
