@@ -8,7 +8,7 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   public progress = 0;
-  user = {usuario: '', password: ''};
+  user = {usuario: 'Nicolas', password: '1234'};
 
   constructor(private router: Router) { 
     setInterval(() => {
