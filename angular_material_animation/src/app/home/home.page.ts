@@ -1,5 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, ElementRef, signal, ViewChild } from '@angular/core';
 import {Sort} from '@angular/material/sort';
+import { Animation, AnimationController } from '@ionic/angular';
+
 
 export interface Task {
   name: string;
@@ -21,6 +23,27 @@ export interface Dessert {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  /* declaramos elemento titulo */
+  @ViewChild('titulo', { read: ElementRef }) titulo: ElementRef<HTMLIonTitleElement> | undefined;
+  /*declaramos animacion */
+  private animation: Animation | undefined;
+  
+  ngAfterViewInit() {
+    if (this.titulo) {
+      this.animation = this.animationCtrl
+        .create()
+        .addElement(this.titulo.nativeElement)
+        .duration(2500)
+        .iterations(Infinity)
+        .keyframes([
+          { offset: 0, transform: 'translate(0%)', opacity: '0.2' },
+          { offset: 0.5, transform: 'translate(50%)', opacity: '1' },
+          { offset: 1,  transform: 'translate(100%)', opacity: '0.2' },
+        ]);
+        
+      this.animation.play();
+    }
+  }
 
   readonly task = signal<Task>({
     name: 'Parent task',
@@ -64,7 +87,7 @@ export class HomePage {
 
   sortedData: Dessert[];
 
-  constructor() {
+  constructor(private animationCtrl: AnimationController) {
     this.sortedData = this.desserts.slice();
   }
 
