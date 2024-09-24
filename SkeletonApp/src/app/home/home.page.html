@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!--<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title class="ion-text-center" #titulo>
       <ion-text >SkeletonAPP</ion-text>
@@ -40,7 +40,6 @@
         </ion-item>
       
         <ion-item>
-          <!--<ion-input  label="Fecha Nacimiento" [(ngModel)]="fecha_nacimiento" type="date" ></ion-input>-->
           <label>Fecha Nacimiento</label>
           <input  matInput [matDatepicker]="picker" [(ngModel)]="fecha_nacimiento" readonly>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -56,7 +55,6 @@
         </ion-col>
       </ion-row>
     </ion-list>
-    <!--<mat-slider min="1" max="100" step="1" value="1"><input matSliderThumb></mat-slider>-->
     
     </ion-card-content>
   </ion-card>
@@ -65,4 +63,18 @@
   <ion-toolbar>
     <ion-title style="text-align: center;">PGY4121 - 2024</ion-title>
   </ion-toolbar>
-</ion-footer>
+</ion-footer>-->
+<ion-content>
+  <ion-segment value="buttons">
+    <ion-segment-button value="default" >
+      <ion-label>Experiencia Laboral</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="segment">
+      <ion-label>Certificaciones</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="buttons">
+      <ion-label>Mis Datos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <router-outlet></router-outlet>
+</ion-content>
