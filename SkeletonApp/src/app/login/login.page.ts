@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginPage implements OnInit {
   public progress = 0;
   user = {usuario: 'Nicolas', password: '1234'};
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private authenticationService: AuthenticationService) { 
     setInterval(() => {
       this.progress += 0.01;
 
@@ -39,6 +40,7 @@ export class LoginPage implements OnInit {
 
   validarLogin(){
     if(this.user.usuario.length >= 3 && this.user.usuario.length <= 8 && this.user.password.length == 4 && this.user.password.match(/^\d{4}$/)){
+      this.authenticationService.login_user(this.user.usuario, this.user.password);
       this.ingresar();  
     }
     else{
