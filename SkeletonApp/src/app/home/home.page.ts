@@ -17,6 +17,8 @@ export class HomePage {
   
   private animation: Animation | undefined;
   private animation_nombre: Animation | undefined;
+
+  segment = "misDatos";
   
   user = {usuario: '', password: ''};
   nombre = "";
@@ -76,6 +78,10 @@ export class HomePage {
       ]);
       this.animation_nombre.play();
     }
+  }
+
+  onChangeSegment(event: any){
+    this.segment = event.detail.value;
   }
 
 }

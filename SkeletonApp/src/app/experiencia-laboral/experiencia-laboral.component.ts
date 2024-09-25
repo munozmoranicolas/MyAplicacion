@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienciaLaboralComponent  implements OnInit {
 
+  user = {usuario: '', password: ''};
+  empresa = "";
+  ano_inicio = "";
+  ano_termino = "";
+  actualmente = "NO";
+  cargo = "";
+
   constructor() { }
 
   ngOnInit() {}

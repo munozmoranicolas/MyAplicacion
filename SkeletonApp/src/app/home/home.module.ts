@@ -10,6 +10,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ExperienciaLaboralComponent } from '../experiencia-laboral/experiencia-laboral.component';
+import { CertificacionesComponent } from '../certificaciones/certificaciones.component';
+import { MisDatosComponent } from '../mis-datos/mis-datos.component';
 
 @NgModule({
   imports: [
@@ -20,6 +23,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSliderModule,
     MatFormFieldModule, MatInputModule, MatDatepickerModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,ExperienciaLaboralComponent,CertificacionesComponent,MisDatosComponent]
 })
 export class HomePageModule {}

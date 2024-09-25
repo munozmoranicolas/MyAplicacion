@@ -28,8 +28,10 @@ export class MisDatosComponent  implements OnInit {
     this.location = location;
     this.activeroute.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation()!.extras.state){
-        //console.log(this.router.getCurrentNavigation()!.extras.state!['user']);
         this.user = this.router.getCurrentNavigation()!.extras.state!['user'];
+      }
+      else{
+        this.user = {usuario: '', password: ''};
       }
     });
   }

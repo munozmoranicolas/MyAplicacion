@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CertificacionesComponent  implements OnInit {
 
+  user = {usuario: '', password: ''};
+  nombre_certificacion = "";
+  fecha_certificacion = "";
+  estado_certificacion = "";
+  fecha_vencimiento = "";
+
   constructor() { }
 
   ngOnInit() {}
