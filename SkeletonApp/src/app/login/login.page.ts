@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { Storage } from '@ionic/storage-angular';
+import { DBTaskService } from '../servicios/dbtask.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
   public progress = 0;
   user = {usuario: 'Nicolas', password: '1234'};
 
-  constructor(private router: Router, private authenticationService: AuthenticationService, private storage: Storage) { 
+  constructor(private router: Router, private authenticationService: AuthenticationService, private storage: Storage, private dbtask: DBTaskService) { 
     setInterval(() => {
       this.progress += 0.01;
 
@@ -29,6 +30,9 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     console.log('ngOnInit LoginPage');
     this.storage.create();
+    this.dbtask.initializeDatabase('user');
+    this.dbtask.addUser('Nicolas');
+    //console.log(this.dbtask.fetchUsers());
   }
 
   ingresar(){
