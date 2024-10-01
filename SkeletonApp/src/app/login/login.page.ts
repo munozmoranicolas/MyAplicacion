@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginPage implements OnInit {
   public progress = 0;
   user = {usuario: 'Nicolas', password: '1234'};
 
-  constructor(private router: Router, private authenticationService: AuthenticationService) { 
+  constructor(private router: Router, private authenticationService: AuthenticationService, private storage: Storage) { 
     setInterval(() => {
       this.progress += 0.01;
 
@@ -27,6 +28,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     console.log('ngOnInit LoginPage');
+    this.storage.create();
   }
 
   ingresar(){
@@ -35,6 +37,7 @@ export class LoginPage implements OnInit {
         user: this.user 
       }
     };
+    this.storage.set('user', this.user);
     this.router.navigate(['/home'],navigationExtras);
   }
 

@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChildren, ViewChild} from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import type { Animation } from '@ionic/angular';
 import { AnimationController,  } from '@ionic/angular';
-
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +28,7 @@ export class HomePage {
   location: any;
   alertButtons = ['Ok'];
 
-  constructor(private activeroute: ActivatedRoute, private router:Router,private animationCtrl: AnimationController) {
+  constructor(private activeroute: ActivatedRoute, private router:Router,private animationCtrl: AnimationController,private storage: Storage) {
     this.location = location;
     this.activeroute.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation()!.extras.state){
@@ -36,6 +36,7 @@ export class HomePage {
         this.user = this.router.getCurrentNavigation()!.extras.state!['user'];
       }
     });
+    storage.get('user').then((user) => { console.log('El usuario es ', user.usuario); });
   }
 
   ngAfterViewInit() {

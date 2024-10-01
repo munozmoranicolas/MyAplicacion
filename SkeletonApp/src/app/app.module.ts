@@ -12,9 +12,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule,MAT_DATE_LOCALE } from '@angular/material/core';
 
+import { IonicStorageModule } from '@ionic/storage-angular';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,MatDatepickerModule,MatNativeDateModule,],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,MatDatepickerModule,MatNativeDateModule,IonicStorageModule.forRoot()],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync(),{provide: MAT_DATE_LOCALE, useValue: 'fr'}],
   bootstrap: [AppComponent],
 })
