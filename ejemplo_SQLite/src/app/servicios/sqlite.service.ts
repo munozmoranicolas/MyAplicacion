@@ -85,7 +85,7 @@ export class SqliteService {
     return this.dbName;
   }
 
-  create(usuario : string){
+  async create(usuario : string){
     let sql = 'INSERT INTO usuarios VALUES(?)';
     const dbName = await this.getDbName();
     return CapacitorSQLite.executeSet({
@@ -128,11 +128,47 @@ export class SqliteService {
     }).catch(err => Promise.reject(err))
   }
 
-  update(){
+  async update(newUsuario: string, oldUsuario: string){
+    let sql = 'UPDATE usuarios SET name = ? WHERE name = ?';
+    const dbName = await this.getDbName();
+    return CapacitorSQLite.executeSet({
+      database: dbName,
+      set: [
+        {
+          statement: sql,
+          values: [
+            newUsuario,
+            oldUsuario
+          ]
+        }
+      ]
+    }).then( (changes : capSQLiteChanges) => {
+      if(this.isWeb){
+        CapacitorSQLite.saveToStore({ database: dbName});
+      }
+      return changes;
+    }).catch(err => Promise.reject(err));
 
   }
 
-  delete(){
-    
+  async delete(usuario : string){
+    let sql = 'DELETE FROM usuarios WHERE name = ?';
+    const dbName = await this.getDbName();
+    return CapacitorSQLite.executeSet({
+      database: dbName,
+      set: [
+        {
+          statement: sql,
+          values: [
+            usuario
+          ]
+        }
+      ] 
+    }).then( (changes : capSQLiteChanges) => {
+      if(this.isWeb){
+        CapacitorSQLite.saveToStore({ database: dbName});
+      }
+      return changes;
+    }).catch(err => Promise.reject(err));
   }
 }

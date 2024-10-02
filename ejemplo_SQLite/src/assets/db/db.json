@@ -5,7 +5,7 @@
     "mode": "full",
     "tables": [
         {
-            "name": "users",
+            "name": "usuarios",
             "schema": [
                 {
                     "column" : "name",
