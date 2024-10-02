@@ -1,0 +1,50 @@
+LINK 1: https://github.com/capacitor-community/sqlite
+LINK 2: https://github.com/capacitor-community/sqlite/blob/master/docs/Web-Usage.md#ionic/angular-app
+
+Requisitos
+
+1.- Instalación de recursos.
+npm install --save @capacitor-community/SQLite
+npm install --save jeep-SQLite 
+npm install --save sql.js
+npm install --save @capacitor/device //Opcional ya que se puede usar platform
+npm install --save @capacitor/preferences
+ionic cap sync
+
+2.- Editar archivo capacitor.config.ts.
+import { CapacitorConfig } from '@capacitor/cli'; //Existe
+
+const config: CapacitorConfig = { //Existe
+  appId: 'com.jeep.app.ionic7.angular.sqlite', //Puede ser modificado
+  appName: 'ionic7-angular-sqlite-starter', //Puede ser modificado
+  webDir: 'www',  //Existe
+  server: {
+    androidScheme: 'https'
+  },
+  plugins: {
+    CapacitorSQLite: {
+      iosDatabaseLocation: 'Library/CapacitorDatabase',
+      iosIsEncryption: true,
+      iosKeychainPrefix: 'angular-sqlite-app-starter',
+      iosBiometric: {
+        biometricAuth: false,
+        biometricTitle : "Biometric login for capacitor sqlite"
+      },
+      androidIsEncryption: true,
+      androidBiometric: {
+        biometricAuth : false,
+        biometricTitle : "Biometric login for capacitor sqlite",
+        biometricSubTitle : "Log in using your biometric"
+      },
+      electronIsEncryption: true,
+      electronWindowsLocation: "C:\\ProgramData\\CapacitorDatabases",
+      electronMacLocation: "/Volumes/Development_Lacie/Development/Databases",
+      electronLinuxLocation: "Databases"
+    }
+  }
+};
+export default config; //Existe
+
+3.- copiar archivo <sql-wasm.wasm> del directorio <node_modules/sql.js/dist/sql-wasm.wasm> al directorio de su proyecto <src/assets>.
+
+4.- 

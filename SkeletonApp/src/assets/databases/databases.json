@@ -1,0 +1,29 @@
+{
+    "databaseList" : [
+      {
+        "database":"skeletonapp.db",
+        "version":1,
+        "encrypted":false,
+        "mode":"full",
+        "tables":[
+          {
+            "name": "sesion_data",
+            "schema": [
+              {
+                "column": "user_name",
+                "value": "TEXT(8) NOT NULL PRIMARY KEY"
+              },{
+                "column": "password",
+                "value": "INTEGER NOT NULL"
+              },{
+                "column": "active",
+                "value": "INTEGER NOT NULL"
+              }
+            ]
+
+          }
+        ]
+
+      }
+    ]
+  }

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
+import { AuthenticationService } from '../servicios/authentication.service';
 import { Storage } from '@ionic/storage-angular';
 import { DBTaskService } from '../servicios/dbtask.service';
 
@@ -30,8 +30,9 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     console.log('ngOnInit LoginPage');
     this.storage.create();
-    this.dbtask.initializeDatabase('user');
-    this.dbtask.addUser('Nicolas');
+    //this.dbtask.getSession();
+    /*this.dbtask.initializeDatabase('user');
+    this.dbtask.addUser('Nicolas');*/
     //console.log(this.dbtask.fetchUsers());
   }
 
