@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EjemploPage } from './ejemplo.page';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { Api2Service } from '../service/api2.service';
 
 describe('EjemploPage', () => {
