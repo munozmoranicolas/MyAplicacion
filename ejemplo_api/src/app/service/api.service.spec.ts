@@ -13,4 +13,18 @@ describe('ApiService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('Deberia retornar un Observable cuando llamamos a gestUser', () => {
+    expect(service.gestUser(1)).toBeTruthy();
+  });
+
+  it('Deberia retornar un Observable cuando llamamos a getUsers', () => {
+    expect(service.getUsers()).toBeTruthy();
+  });
+
+  it('Deberia retornar un Observable cuando llamamos a getPosts', () => {
+    expect(service.gestUser(0)).toBeTruthy();
+  });
+
+
 });

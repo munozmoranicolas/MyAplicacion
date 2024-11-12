@@ -21,7 +21,7 @@ export class EjemploPage implements OnInit {
   getUsuarios(){
     this.api.getUsers().subscribe((data)=>{
       this.users=data.data;
-    });
+    }); 
   }
   
 }
